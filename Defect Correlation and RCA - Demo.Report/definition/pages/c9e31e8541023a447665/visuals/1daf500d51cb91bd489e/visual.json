@@ -1,0 +1,157 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "1daf500d51cb91bd489e",
+  "position": {
+    "x": 1.6564814149112086,
+    "y": 0,
+    "z": 0,
+    "height": 251.78517506650368,
+    "width": 332.95276439715292,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "image",
+    "objects": {
+      "image": [
+        {
+          "properties": {
+            "sourceFile": {
+              "image": {
+                "name": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Designer (4).png'"
+                    }
+                  }
+                },
+                "url": {
+                  "expr": {
+                    "ResourcePackageItem": {
+                      "PackageName": "RegisteredResources",
+                      "PackageType": 1,
+                      "ItemName": "Designer_(4)6150871921947557.png"
+                    }
+                  }
+                },
+                "scaling": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Normal'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "press"
+          }
+        },
+        {
+          "properties": {
+            "effects": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "sourceFile": {
+              "image": {
+                "name": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Designer (4).png'"
+                    }
+                  }
+                },
+                "url": {
+                  "expr": {
+                    "ResourcePackageItem": {
+                      "PackageName": "RegisteredResources",
+                      "PackageType": 1,
+                      "ItemName": "Designer_(4)7388759593762245.png"
+                    }
+                  }
+                },
+                "scaling": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Normal'"
+                    }
+                  }
+                }
+              }
+            },
+            "fit": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Fill'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "hover"
+          }
+        },
+        {
+          "properties": {
+            "sourceFile": {
+              "image": {
+                "name": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Designer (4).png'"
+                    }
+                  }
+                },
+                "url": {
+                  "expr": {
+                    "ResourcePackageItem": {
+                      "PackageName": "RegisteredResources",
+                      "PackageType": 1,
+                      "ItemName": "Designer_(4)9019655046505557.png"
+                    }
+                  }
+                },
+                "scaling": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Normal'"
+                    }
+                  }
+                }
+              }
+            },
+            "backgroundEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backgroundTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "80D"
+                }
+              }
+            },
+            "fit": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Fill'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

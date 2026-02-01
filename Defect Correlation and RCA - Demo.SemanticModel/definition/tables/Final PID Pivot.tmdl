@@ -1,0 +1,420 @@
+table 'Final PID Pivot'
+	lineageTag: 97b3a526-5532-4d78-8624-f163536cae5f
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e5339dce-9c94-4aeb-837a-3fd4b9b208fc
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 921eeb89-8559-4f99-84d0-038fe7d82bc3
+			defaultHierarchy: LocalDateTable_a9583a99-a459-468e-9e94-0d29f69eb627.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Defect Classification'
+		dataType: string
+		lineageTag: 11dfec8d-3966-4d6c-9c4d-4b98652dcef5
+		summarizeBy: none
+		sourceColumn: Defect Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inspection Report'
+		dataType: string
+		lineageTag: 2b85875f-a734-406f-8ed5-de2aea01bda7
+		summarizeBy: none
+		sourceColumn: Inspection Report
+
+		annotation SummarizationSetBy = Automatic
+
+	column Factory
+		dataType: string
+		lineageTag: 9ce3e39a-09fc-49f5-8371-4f0a2a198c97
+		summarizeBy: none
+		sourceColumn: Factory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inspection Stage'
+		dataType: string
+		lineageTag: 31a034ff-1847-4652-b11d-ac4e66d31b92
+		summarizeBy: none
+		sourceColumn: Inspection Stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: ffff8b24-6b20-4eab-8053-f51406eea12d
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column PID
+		dataType: string
+		lineageTag: 58d34855-5b49-4876-bee8-c6d985817c1d
+		summarizeBy: none
+		sourceColumn: PID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Style
+		dataType: string
+		lineageTag: 06073324-8d79-4467-8370-2646a5d6b0f9
+		summarizeBy: none
+		sourceColumn: Style
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: 46266082-3cbe-4f72-a1d1-4d8b39bf6250
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column Buyer
+		dataType: string
+		lineageTag: f4454f3c-d4de-495c-bae0-3eded0fc753c
+		summarizeBy: none
+		sourceColumn: Buyer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Broken stitches'
+		dataType: int64
+		formatString: 0
+		lineageTag: bcf50cbe-d60a-4d57-99cf-666b96608002
+		summarizeBy: sum
+		sourceColumn: Broken stitches
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Color stain'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a74385a-b90a-4512-9881-80cc2d242946
+		summarizeBy: sum
+		sourceColumn: Color stain
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Excessive Dirt'
+		dataType: int64
+		formatString: 0
+		lineageTag: 510b112c-5115-45dc-90f5-ee7c153ae038
+		summarizeBy: sum
+		sourceColumn: Excessive Dirt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fabric defect by Processing: Pulling yarn'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ebc3b46-3c07-46b5-9527-02c2be84b68f
+		summarizeBy: sum
+		sourceColumn: Fabric defect by Processing: Pulling yarn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fabric defect from machines: Holes (fabric)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ba4f7ea-3483-4f19-9e65-1200d0cbc4fa
+		summarizeBy: sum
+		sourceColumn: Fabric defect from machines: Holes (fabric)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fabric defect from machines: Needle line/Streaks'
+		dataType: int64
+		formatString: 0
+		lineageTag: 551472b7-2758-4b11-9f81-c49379a7726c
+		summarizeBy: sum
+		sourceColumn: Fabric defect from machines: Needle line/Streaks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Misaligned stripe/plaid/pattern/joint'
+		dataType: int64
+		formatString: 0
+		lineageTag: c5d853e7-9ee2-42f1-8768-e6428e7cc9b9
+		summarizeBy: sum
+		sourceColumn: Misaligned stripe/plaid/pattern/joint
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mishandling: Trimmed thread end / dust floated upon'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8cb83981-a68a-4157-881a-d2dccb6a2ece
+		summarizeBy: sum
+		sourceColumn: Mishandling: Trimmed thread end / dust floated upon
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Missed Stitching: Missed bar tack/tacking/sewing'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a9209a5-79d4-493f-9a19-a4c7d39dd096
+		summarizeBy: sum
+		sourceColumn: Missed Stitching: Missed bar tack/tacking/sewing
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Missing Components: Missing Trims/Embellishment/Components required'
+		dataType: int64
+		formatString: 0
+		lineageTag: e18dceab-377b-4ac9-9a42-d1c0b22dde26
+		summarizeBy: sum
+		sourceColumn: Missing Components: Missing Trims/Embellishment/Components required
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Natural features: Coarse/Single yarn'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4760841a-eb8f-43fc-951f-9b82649b5165
+		summarizeBy: sum
+		sourceColumn: Natural features: Coarse/Single yarn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Oil stain'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d9bf07c-63c5-44ce-82eb-5fbc1cd395b8
+		summarizeBy: sum
+		sourceColumn: Oil stain
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Open Seam'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4830ce8e-b7cd-4dd8-b8f8-5eb345c4e030
+		summarizeBy: sum
+		sourceColumn: Open Seam
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Other construction defects'
+		dataType: int64
+		formatString: 0
+		lineageTag: 16afb423-734e-4d10-8f59-7c1c87e7e1e2
+		summarizeBy: sum
+		sourceColumn: Other construction defects
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Other textile defects'
+		dataType: int64
+		formatString: 0
+		lineageTag: f75a47da-dd80-428f-876f-2b3848f8c7f2
+		summarizeBy: sum
+		sourceColumn: Other textile defects
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partial color change: Shine of over pressing / hanger press marks'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e0c3943-6420-4911-a7f8-9c7c3c5c3019
+		summarizeBy: sum
+		sourceColumn: Partial color change: Shine of over pressing / hanger press marks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Related: Insect infested'
+		dataType: int64
+		formatString: 0
+		lineageTag: b3a33ff6-a5c4-4b53-8140-137611c6f108
+		summarizeBy: sum
+		sourceColumn: Product Related: Insect infested
+
+		annotation SummarizationSetBy = Automatic
+
+	column Puckering/Shirring
+		dataType: int64
+		formatString: 0
+		lineageTag: 45da1b4e-b306-4f00-a52b-44d38b826970
+		summarizeBy: sum
+		sourceColumn: Puckering/Shirring
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Retail Package Printing: Incorrect printed retail packaging'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7093a39a-ee43-4a7a-aa72-c6ad6d2008f1
+		summarizeBy: sum
+		sourceColumn: Retail Package Printing: Incorrect printed retail packaging
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Retail Package Printing: Incorrect size, style, color printed on unit box / polybag'
+		dataType: int64
+		formatString: 0
+		lineageTag: f5ef064a-c943-44aa-bba4-0c817761684f
+		summarizeBy: sum
+		sourceColumn: Retail Package Printing: Incorrect size, style, color printed on unit box / polybag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seam Outline: Crocked/Wavy seam'
+		dataType: int64
+		formatString: 0
+		lineageTag: 54c54d16-fa01-4a71-a2db-bb6c6519fa8a
+		summarizeBy: sum
+		sourceColumn: Seam Outline: Crocked/Wavy seam
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seam Outline: Fullness/Ease'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a402045-80d7-4201-bba0-0e2b0567979d
+		summarizeBy: sum
+		sourceColumn: Seam Outline: Fullness/Ease
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seam Outline: Seam tension loose or tight'
+		dataType: int64
+		formatString: 0
+		lineageTag: b522b1a6-3a15-418f-af59-f105d8ab277c
+		summarizeBy: sum
+		sourceColumn: Seam Outline: Seam tension loose or tight
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Skipped stitches'
+		dataType: int64
+		formatString: 0
+		lineageTag: 15d9f731-f553-4e98-8435-01d889f423a7
+		summarizeBy: sum
+		sourceColumn: Skipped stitches
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Stitching Repair: Needle holes'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3603d238-c2e4-4d0d-a93a-905d4a7dace1
+		summarizeBy: sum
+		sourceColumn: Stitching Repair: Needle holes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Surface appearance: Wrinkle/Crease Mark/Feed Dog Mark'
+		dataType: int64
+		formatString: 0
+		lineageTag: 99ec4cc9-0e51-4846-8154-cdc39b492523
+		summarizeBy: sum
+		sourceColumn: Surface appearance: Wrinkle/Crease Mark/Feed Dog Mark
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Symmetry and Balance: High-Low issue'
+		dataType: int64
+		formatString: 0
+		lineageTag: 732d29a0-86db-46b8-9c6b-aebbfec798d3
+		summarizeBy: sum
+		sourceColumn: Symmetry and Balance: High-Low issue
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Symmetry and Balance: Irregular shape not symmetrical'
+		dataType: int64
+		formatString: 0
+		lineageTag: 805c8393-be09-49c2-9ddd-b3481813a811
+		summarizeBy: sum
+		sourceColumn: Symmetry and Balance: Irregular shape not symmetrical
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Threads ends'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1928651b-bda9-4744-9479-5f10b586a0e7
+		summarizeBy: sum
+		sourceColumn: Threads ends
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trimming: Frayed / Rough edges'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2eaba910-3a33-424b-8b91-8a4f70d522e6
+		summarizeBy: sum
+		sourceColumn: Trimming: Frayed / Rough edges
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Defective Decoration: Defective Artworks'
+		dataType: int64
+		formatString: 0
+		lineageTag: 988078a2-4d90-4d1b-88da-194b29d7a3dc
+		summarizeBy: sum
+		sourceColumn: Defective Decoration: Defective Artworks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mismatch Standard: Mismatched Trims Mismatched Trims'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4bc8c02a-3e57-4d37-a8ff-40547a9b2893
+		summarizeBy: sum
+		sourceColumn: Mismatch Standard: Mismatched Trims Mismatched Trims
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seam Outline: Skewing/Twisted'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3bb41e9d-6c80-49e3-bb1e-c7450463ab0c
+		summarizeBy: sum
+		sourceColumn: Seam Outline: Skewing/Twisted
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cleanness: Pen Mark'
+		dataType: int64
+		formatString: 0
+		lineageTag: deebba3e-a499-41ee-8fae-23f788c6cd60
+		summarizeBy: sum
+		sourceColumn: Cleanness: Pen Mark
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Defect'
+		dataType: int64
+		formatString: 0
+		lineageTag: 87b8d62e-7667-414e-b68a-ff0b4610da64
+		summarizeBy: sum
+		sourceColumn: Total Defect
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Final PID Pivot' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\mohaimin.chowdhury\OneDrive - Hop Lun\Personal Project - Transformation\Database\Monthly Database\Final with PID\Final with PID.xlsx"), null, true),
+				    #"Final PID Pivot_Sheet" = Source{[Item="Final PID Pivot",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Final PID Pivot_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Defect Classification", type text}, {"Inspection Report", type text}, {"Factory", type text}, {"Inspection Stage", type text}, {"Type", type text}, {"PID", type text}, {"Style", type text}, {"Index", Int64.Type}, {"Buyer", type text}, {"Broken stitches", Int64.Type}, {"Color stain", Int64.Type}, {"Excessive Dirt", Int64.Type}, {"Fabric defect by Processing: Pulling yarn", Int64.Type}, {"Fabric defect from machines: Holes (fabric)", Int64.Type}, {"Fabric defect from machines: Needle line/Streaks", Int64.Type}, {"Misaligned stripe/plaid/pattern/joint", Int64.Type}, {"Mishandling: Trimmed thread end / dust floated upon", Int64.Type}, {"Missed Stitching: Missed bar tack/tacking/sewing", Int64.Type}, {"Missing Components: Missing Trims/Embellishment/Components required", Int64.Type}, {"Natural features: Coarse/Single yarn", Int64.Type}, {"Oil stain", Int64.Type}, {"Open Seam", Int64.Type}, {"Other construction defects", Int64.Type}, {"Other textile defects", Int64.Type}, {"Partial color change: Shine of over pressing / hanger press marks", Int64.Type}, {"Product Related: Insect infested", Int64.Type}, {"Puckering/Shirring", Int64.Type}, {"Retail Package Printing: Incorrect printed retail packaging", Int64.Type}, {"Retail Package Printing: Incorrect size, style, color printed on unit box / polybag", Int64.Type}, {"Seam Outline: Crocked/Wavy seam", Int64.Type}, {"Seam Outline: Fullness/Ease", Int64.Type}, {"Seam Outline: Seam tension loose or tight", Int64.Type}, {"Skipped stitches", Int64.Type}, {"Stitching Repair: Needle holes", Int64.Type}, {"Surface appearance: Wrinkle/Crease Mark/Feed Dog Mark", Int64.Type}, {"Symmetry and Balance: High-Low issue", Int64.Type}, {"Symmetry and Balance: Irregular shape not symmetrical", Int64.Type}, {"Threads ends", Int64.Type}, {"Trimming: Frayed / Rough edges", Int64.Type}, {"Defective Decoration: Defective Artworks", Int64.Type}, {"Mismatch Standard: Mismatched Trims Mismatched Trims", Int64.Type}, {"Seam Outline: Skewing/Twisted", Int64.Type}, {"Cleanness: Pen Mark", Int64.Type}, {"Total Defect", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

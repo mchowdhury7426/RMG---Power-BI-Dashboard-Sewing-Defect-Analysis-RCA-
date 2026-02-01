@@ -1,0 +1,304 @@
+table 'Final Measurement Pivot'
+	lineageTag: 95e2b09e-6f27-4711-8f1e-6d93efba44d8
+
+	measure 'Measurement Defect Percentage' = divide(sum('Final Measurement Unpivoted'[Defect QTY]), sum('Final Measurement Pivot'[Measurement Sample]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1d3f569f-a6ca-4c09-812b-49bb841c9ecb
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3abff052-6fe3-417d-b4c2-84572c6f21c5
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 1834f719-e5f4-4618-8206-1e0715a48280
+			defaultHierarchy: LocalDateTable_1fc0519d-8814-4670-bd29-33d1eb5183de.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Factory
+		dataType: string
+		lineageTag: 6205b6fe-6986-4701-9dba-3819421b2dff
+		summarizeBy: none
+		sourceColumn: Factory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: 1e8450df-5d2a-41e3-a451-985a92e79145
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inspection Report'
+		dataType: string
+		lineageTag: dab7798f-b918-49af-a2c4-37dbbdc382fb
+		summarizeBy: none
+		sourceColumn: Inspection Report
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inspection Report Link'
+		dataType: string
+		lineageTag: 4aa3290a-aa13-418c-96d4-2771fd61f110
+		summarizeBy: none
+		sourceColumn: Inspection Report Link
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sample Size'
+		dataType: int64
+		formatString: 0
+		lineageTag: a1fefc93-3f16-481b-88df-19d8fc30e532
+		summarizeBy: sum
+		sourceColumn: Sample Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Measurement Sample'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e434861-52b2-4632-955c-5609c2baf330
+		summarizeBy: sum
+		sourceColumn: Measurement Sample
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'B18.R - MIDRIFF BELOW BUST'
+		dataType: int64
+		formatString: 0
+		lineageTag: 280f7cd5-7f29-4809-95e4-e804d55c6e67
+		summarizeBy: sum
+		sourceColumn: B18.R - MIDRIFF BELOW BUST
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'B35.R - BRA BOTTOM BAND'
+		dataType: int64
+		formatString: 0
+		lineageTag: 59f6de75-f651-47d6-b3f2-9f63f47f6321
+		summarizeBy: sum
+		sourceColumn: B35.R - BRA BOTTOM BAND
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'B35.R - BRA BOTTOM BAND-1'
+		dataType: int64
+		formatString: 0
+		lineageTag: 20a93835-2b06-465e-8368-7347ec9b9967
+		summarizeBy: sum
+		sourceColumn: B35.R - BRA BOTTOM BAND-1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'B39.R - BRA NECKLINE'
+		dataType: int64
+		formatString: 0
+		lineageTag: 113509db-812f-484b-97cd-66eb136dc839
+		summarizeBy: sum
+		sourceColumn: B39.R - BRA NECKLINE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'B42.VG - BRA BOTTOM BK EDGE-Vendor to Grade'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e6eb921-c735-44e5-9d6a-36fe84800d0a
+		summarizeBy: sum
+		sourceColumn: B42.VG - BRA BOTTOM BK EDGE-Vendor to Grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'C16.P - WAIST RIGID/ELASTIC RELAXED-Underwear'
+		dataType: int64
+		formatString: 0
+		lineageTag: 954d996d-7af8-4472-9f03-54fb0a1ea36a
+		summarizeBy: sum
+		sourceColumn: C16.P - WAIST RIGID/ELASTIC RELAXED-Underwear
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'C16.R - WAIST RIGID/ELASTIC RELAXED'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0758fb46-db82-434d-8447-7eca23c75370
+		summarizeBy: sum
+		sourceColumn: C16.R - WAIST RIGID/ELASTIC RELAXED
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'F37.R - SHOULDER STRAP LENGTH BK'
+		dataType: int64
+		formatString: 0
+		lineageTag: a782ea5e-da63-4e62-8942-0de9e16f77e7
+		summarizeBy: sum
+		sourceColumn: F37.R - SHOULDER STRAP LENGTH BK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'R02.R - FRT RISE'
+		dataType: int64
+		formatString: 0
+		lineageTag: 77b802e9-fb6a-4f13-8e50-c4b6e8a0ddda
+		summarizeBy: sum
+		sourceColumn: R02.R - FRT RISE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'V02.R - LEG OPENING RLXD'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e346105-9dac-495a-ae2d-9b8cbab1f053
+		summarizeBy: sum
+		sourceColumn: V02.R - LEG OPENING RLXD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'R03.R - BK RISE'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e46f244-dc19-446d-8640-24985aaa1589
+		summarizeBy: sum
+		sourceColumn: R03.R - BK RISE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'B47.R - BRA SIDE CUP'
+		dataType: int64
+		formatString: 0
+		lineageTag: a32c7021-3604-42dc-8846-e7cb6b2aeca1
+		summarizeBy: sum
+		sourceColumn: B47.R - BRA SIDE CUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'M36.SWM - CF TORSO LENGTH-Swimwear'
+		dataType: int64
+		formatString: 0
+		lineageTag: bcda882e-eefa-41cd-b01b-042c37881b24
+		summarizeBy: sum
+		sourceColumn: M36.SWM - CF TORSO LENGTH-Swimwear
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'F44.R - BK BRA STRAP POSITION'
+		dataType: int64
+		formatString: 0
+		lineageTag: c6ef2e4b-8aec-4c23-9fdb-467f74e43138
+		summarizeBy: sum
+		sourceColumn: F44.R - BK BRA STRAP POSITION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'B39.R - BRA NECKLINE-2'
+		dataType: int64
+		formatString: 0
+		lineageTag: 96c8b403-8598-4c7b-a64f-00ad6d44484b
+		summarizeBy: sum
+		sourceColumn: B39.R - BRA NECKLINE-2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'R02.P - FRT RISE-Underwear'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d730bfe-60a0-47da-b656-f0f691d7c368
+		summarizeBy: sum
+		sourceColumn: R02.P - FRT RISE-Underwear
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'F35.R - SHOULDER STRAP LENGTH'
+		dataType: int64
+		formatString: 0
+		lineageTag: 576eb213-8f18-4a88-837a-a1ab9a866659
+		summarizeBy: sum
+		sourceColumn: F35.R - SHOULDER STRAP LENGTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'B35.R - BRA BOTTOM BAND-2'
+		dataType: int64
+		formatString: 0
+		lineageTag: 145be68a-8e9d-486f-b3e9-4cc8dfb06b23
+		summarizeBy: sum
+		sourceColumn: B35.R - BRA BOTTOM BAND-2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'B37.R - BRA SIDE BAND HEIGHT'
+		dataType: int64
+		formatString: 0
+		lineageTag: 90320874-bcb6-48bd-bbb3-ff4c5d5ff493
+		summarizeBy: sum
+		sourceColumn: B37.R - BRA SIDE BAND HEIGHT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'R03.P - BK RISE-Underwear'
+		dataType: int64
+		formatString: 0
+		lineageTag: a2a57b18-c7c0-4466-ac58-2aec80202928
+		summarizeBy: sum
+		sourceColumn: R03.P - BK RISE-Underwear
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'B48.VG - BRA TOP BACK BAND - VENDOR TO GRADE'
+		dataType: int64
+		formatString: 0
+		lineageTag: 188bb9f6-8311-489b-bfe4-b84a479e2e85
+		summarizeBy: sum
+		sourceColumn: B48.VG - BRA TOP BACK BAND - VENDOR TO GRADE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'B37.R - BRA SIDE BAND HEIGHT-1'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5893f573-ee4b-49ce-9b2d-1942063c43e9
+		summarizeBy: sum
+		sourceColumn: B37.R - BRA SIDE BAND HEIGHT-1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'E01.R - SWEEP - Grade as Chest/Bust'
+		dataType: int64
+		formatString: 0
+		lineageTag: 99d02ef3-0586-4094-ae10-03132cbe084f
+		summarizeBy: sum
+		sourceColumn: E01.R - SWEEP - Grade as Chest/Bust
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'M Total Defect'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7deb8973-b212-4dab-9c48-72d94accc4ff
+		summarizeBy: sum
+		sourceColumn: M Total Defect
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Final Measurement Pivot' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\mohaimin.chowdhury\OneDrive - Hop Lun\Personal Project - Transformation\Database\Monthly Database\Final Reports\Final - Measurement Reports.xlsx"), null, true),
+				    #"Final Measurement Pivot_Sheet" = Source{[Item="Final Measurement Pivot",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Final Measurement Pivot_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Factory", type text}, {"Type", type text}, {"Inspection Report", type text}, {"Inspection Report Link", type text}, {"Sample Size", Int64.Type}, {"Measurement Sample", Int64.Type}, {"B18.R - MIDRIFF BELOW BUST", Int64.Type}, {"B35.R - BRA BOTTOM BAND", Int64.Type}, {"B35.R - BRA BOTTOM BAND-1", Int64.Type}, {"B39.R - BRA NECKLINE", Int64.Type}, {"B42.VG - BRA BOTTOM BK EDGE-Vendor to Grade", Int64.Type}, {"C16.P - WAIST RIGID/ELASTIC RELAXED-Underwear", Int64.Type}, {"C16.R - WAIST RIGID/ELASTIC RELAXED", Int64.Type}, {"F37.R - SHOULDER STRAP LENGTH BK", Int64.Type}, {"R02.R - FRT RISE", Int64.Type}, {"V02.R - LEG OPENING RLXD", Int64.Type}, {"R03.R - BK RISE", Int64.Type}, {"B47.R - BRA SIDE CUP", Int64.Type}, {"M36.SWM - CF TORSO LENGTH-Swimwear", Int64.Type}, {"F44.R - BK BRA STRAP POSITION", Int64.Type}, {"B39.R - BRA NECKLINE-2", Int64.Type}, {"R02.P - FRT RISE-Underwear", Int64.Type}, {"F35.R - SHOULDER STRAP LENGTH", Int64.Type}, {"B35.R - BRA BOTTOM BAND-2", Int64.Type}, {"B37.R - BRA SIDE BAND HEIGHT", Int64.Type}, {"R03.P - BK RISE-Underwear", Int64.Type}, {"B48.VG - BRA TOP BACK BAND - VENDOR TO GRADE", Int64.Type}, {"B37.R - BRA SIDE BAND HEIGHT-1", Int64.Type}, {"E01.R - SWEEP - Grade as Chest/Bust", Int64.Type}, {"M Total Defect", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

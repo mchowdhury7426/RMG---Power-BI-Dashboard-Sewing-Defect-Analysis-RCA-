@@ -1,0 +1,73 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup 'Transform File from Inline'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Transform File from Inline\Helper Queries'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Transform File from Endline'
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup 'Transform File from Endline\Helper Queries'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Transform File from Prefinal'
+
+	annotation PBI_QueryGroupOrder = 4
+
+queryGroup 'Transform File from Prefinal\Helper Queries'
+
+	annotation PBI_QueryGroupOrder = 0
+
+/// Errors in queries that were loaded on 25/01/2026 09:16:12.
+queryGroup 'Query Errors - 25/01/2026 09:16:12'
+
+	annotation PBI_QueryGroupOrder = 6
+
+/// Errors in queries that were loaded on 25/01/2026 09:25:01.
+queryGroup 'Query Errors - 25/01/2026 09:25:01'
+
+	annotation PBI_QueryGroupOrder = 7
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Inline","Parameter1","Transform Sample File","Sample File","Transform File","Endline","Parameter2","Transform Sample File (2)","Sample File (2)","Transform File (2)","Prefinal","Parameter3","Transform Sample File (3)","Sample File (3)","Transform File (3)","Errors in Inline","Errors in Endline","Errors in Inline (2)","Errors in Endline (2)","Central Database","Central Database Unpivoted","SC Factory schedule listing - B","Final PID Pivot","Final Report Pivot","Final Measurement Pivot","Final Report Unpivoted","Final Measurement Unpivoted"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Inline
+ref table DateTableTemplate_c4d6e98c-0169-4bcf-9a9f-91087ea945ac
+ref table LocalDateTable_c66aac1a-fb76-49f7-b3ef-b7c0c5cf04e9
+ref table Endline
+ref table LocalDateTable_fff04bf4-e87a-48c0-bb61-207a322da0ad
+ref table Prefinal
+ref table LocalDateTable_66a95c58-38e7-4d13-8f64-8709bf46dc33
+ref table 'Central Database'
+ref table LocalDateTable_d59da0ec-1f2e-4520-ace9-70c4899badaa
+ref table 'Central Database Unpivoted'
+ref table LocalDateTable_c08f2702-c078-4030-b596-424519f202c6
+ref table 'SC Factory schedule listing - B'
+ref table 'Final PID Pivot'
+ref table LocalDateTable_a9583a99-a459-468e-9e94-0d29f69eb627
+ref table 'Final Report Pivot'
+ref table LocalDateTable_ebe408ff-eb3f-493c-b4e0-7b38a540344b
+ref table 'Final Measurement Pivot'
+ref table LocalDateTable_1fc0519d-8814-4670-bd29-33d1eb5183de
+ref table 'Final Report Unpivoted'
+ref table LocalDateTable_e2dc49d6-e853-48cf-9c82-76da1b7dda6c
+ref table 'Final Measurement Unpivoted'
+ref table LocalDateTable_fe103ed4-22aa-42b8-809d-afb69aff594f
+
+ref cultureInfo en-US
+

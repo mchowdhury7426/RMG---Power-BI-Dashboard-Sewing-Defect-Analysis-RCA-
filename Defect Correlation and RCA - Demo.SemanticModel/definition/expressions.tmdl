@@ -1,0 +1,225 @@
+expression Parameter1 = #"Sample File" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: f4edad02-44d8-4beb-a782-9fdd777b134c
+	queryGroup: 'Transform File from Inline\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression Parameter2 = #"Sample File (2)" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File (2)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 28b8f117-7d93-4046-a908-079d2135e791
+	queryGroup: 'Transform File from Endline\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression Parameter3 = #"Sample File (3)" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File (3)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 22093ae1-c888-430c-85f6-0a992fbebaf9
+	queryGroup: 'Transform File from Prefinal\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform Sample File' =
+		let
+		    Source = Excel.Workbook(Parameter1, null, true),
+		    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+	lineageTag: b2ebf96c-b484-4f66-929a-43dbeb0f548d
+	queryGroup: 'Transform File from Inline'
+
+	annotation PBI_ResultType = Table
+
+expression 'Sample File' =
+		let
+		    Source = Folder.Files("C:\Users\mohaimin.chowdhury\OneDrive - Hop Lun\Personal Project - Transformation\Database\Monthly Database\Inline"),
+		    Navigation1 = Source{0}[Content]
+		in
+		    Navigation1
+	lineageTag: 09aafe19-7098-43b9-b022-245b90ba8dc4
+	queryGroup: 'Transform File from Inline\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform File' =
+		let
+		    Source = (Parameter1 as binary) => let
+		    Source = Excel.Workbook(Parameter1, null, true),
+		    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+		in
+		    Source
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transform Sample File""}" ]
+	lineageTag: fcb07e87-ba55-4cda-82e7-56d4f3557d9f
+	queryGroup: 'Transform File from Inline\Helper Queries'
+
+	annotation PBI_ResultType = Function
+
+expression 'Transform Sample File (2)' =
+		let
+		    Source = Excel.Workbook(Parameter2, null, true),
+		    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+	lineageTag: 0078178e-c907-4a17-ac2c-56ee0e5318f4
+	queryGroup: 'Transform File from Endline'
+
+	annotation PBI_ResultType = Table
+
+expression 'Sample File (2)' =
+		let
+		    Source = Folder.Files("C:\Users\mohaimin.chowdhury\OneDrive - Hop Lun\Personal Project - Transformation\Database\Monthly Database\Endline"),
+		    Navigation1 = Source{0}[Content]
+		in
+		    Navigation1
+	lineageTag: 6552b27e-1ed8-4994-a3d7-b5de0049c425
+	queryGroup: 'Transform File from Endline\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform File (2)' =
+		let
+		    Source = (Parameter2 as binary) => let
+		    Source = Excel.Workbook(Parameter2, null, true),
+		    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+		in
+		    Source
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transform Sample File (2)""}" ]
+	lineageTag: d5c25e68-b721-4b29-aa92-5941aceada75
+	queryGroup: 'Transform File from Endline\Helper Queries'
+
+	annotation PBI_ResultType = Function
+
+expression 'Transform Sample File (3)' =
+		let
+		    Source = Excel.Workbook(Parameter3, null, true),
+		    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+	lineageTag: 14d8aa56-0a3c-4a34-b91d-31849ddf0978
+	queryGroup: 'Transform File from Prefinal'
+
+	annotation PBI_ResultType = Table
+
+expression 'Sample File (3)' =
+		let
+		    Source = Folder.Files("C:\Users\mohaimin.chowdhury\OneDrive - Hop Lun\Personal Project - Transformation\Database\Monthly Database\Prefinal"),
+		    Navigation1 = Source{0}[Content]
+		in
+		    Navigation1
+	lineageTag: 73b32f0a-cc48-4749-ac6c-c22316d2c098
+	queryGroup: 'Transform File from Prefinal\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform File (3)' =
+		let
+		    Source = (Parameter3 as binary) => let
+		    Source = Excel.Workbook(Parameter3, null, true),
+		    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+		in
+		    Source
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transform Sample File (3)""}" ]
+	lineageTag: b084cef2-4727-48fa-bccd-5afa94773ddc
+	queryGroup: 'Transform File from Prefinal\Helper Queries'
+
+	annotation PBI_ResultType = Function
+
+expression 'Errors in Inline' =
+		let
+		Source = Inline,
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Source.Name", "Month", "Date", "Inspection Stage", "Factory", "Building", "Floor", "Line #(lf)No", "Item", "Buyer", "Style", "Color", "MO", "Operation #(lf)Name", "Operators#(lf)ID", "Inspector#(lf)Name", "Inspectors ID", "Total Check Quantity", "Improper SPI/width stitches#(lf)", "Skip stitches#(lf)", "Stitch Tension Tight / Loose /Cracking #(lf)", "Broken Stitch#(lf)", "Open Seam#(lf)", "Poor/ join stitch#(lf)", "Cup Loose/Tight#(lf)", "Puckering/Twisted/Wavy", "High-Low/ asymmetry#(lf)", "Poor/Out of Shape/ Centre Front/Gore out of shape/Slanted#(lf)", "Flipping up/Curling down", "Uneven shearing /Gap/ Gathering", "Pointy/ Uneven Seam Allowance/Pleat", "Measurement (+/-)#(lf)", "Wire Play +/-", "Raw edge/ Exposed#(lf)", "Uncut/Loose Thread #(lf)", "Crease Mark#(lf)", "Dirty/ Chalk/ pen mark#(lf)", "Oil /Stain Mark #(lf)", "Hole/Needle hole/Cut#(lf)", "Snagging/Fraying#(lf)", "Bartack Missing/ Improper Bartack", "Trim/ Label Missing/ Label Not Readable", "Trim Improperly attached", "Sharp Edge#(lf)", "Shade Variation #(lf)", "Straps Insecure/Misplaced/Uneven/Twisted", "Wrong/ Incorrect Size", "Other defects", "Total Defect", "Column3", "Column4", "Column5", "Column6", "DHU%", "RFT%", "Index", "PID", "Tracking No"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Source.Name", "Month", "Date", "Inspection Stage", "Factory", "Building", "Floor", "Line #(lf)No", "Item", "Buyer", "Style", "Color", "MO", "Operation #(lf)Name", "Operators#(lf)ID", "Inspector#(lf)Name", "Inspectors ID", "Total Check Quantity", "Improper SPI/width stitches#(lf)", "Skip stitches#(lf)", "Stitch Tension Tight / Loose /Cracking #(lf)", "Broken Stitch#(lf)", "Open Seam#(lf)", "Poor/ join stitch#(lf)", "Cup Loose/Tight#(lf)", "Puckering/Twisted/Wavy", "High-Low/ asymmetry#(lf)", "Poor/Out of Shape/ Centre Front/Gore out of shape/Slanted#(lf)", "Flipping up/Curling down", "Uneven shearing /Gap/ Gathering", "Pointy/ Uneven Seam Allowance/Pleat", "Measurement (+/-)#(lf)", "Wire Play +/-", "Raw edge/ Exposed#(lf)", "Uncut/Loose Thread #(lf)", "Crease Mark#(lf)", "Dirty/ Chalk/ pen mark#(lf)", "Oil /Stain Mark #(lf)", "Hole/Needle hole/Cut#(lf)", "Snagging/Fraying#(lf)", "Bartack Missing/ Improper Bartack", "Trim/ Label Missing/ Label Not Readable", "Trim Improperly attached", "Sharp Edge#(lf)", "Shade Variation #(lf)", "Straps Insecure/Misplaced/Uneven/Twisted", "Wrong/ Incorrect Size", "Other defects", "Total Defect", "Column3", "Column4", "Column5", "Column6", "DHU%", "RFT%", "Index", "PID", "Tracking No"})
+		in
+		    #"Reordered Columns"
+	lineageTag: 14d57aef-2327-4e7a-819c-56279dee6b2b
+	queryGroup: 'Query Errors - 25/01/2026 09:16:12'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in Endline' =
+		let
+		Source = Endline,
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Source.Name", "Month", "Date", "Inspection Stage", "Factory", "Building", "Floor", "Line #(lf)No", "Item", "Buyer", "Style", "Color", "MO", "Operation #(lf)Name", "Operators#(lf)ID", "Inspector#(lf)Name", "Inspectors ID", "Total Check Quantity", "Improper SPI/width stitches#(lf)", "Skip stitches#(lf)", "Stitch Tension Tight / Loose /Cracking #(lf)", "Broken Stitch#(lf)", "Open Seam#(lf)", "Poor/ join stitch#(lf)", "Cup Loose/Tight#(lf)", "Puckering/Twisted/Wavy", "High-Low/ asymmetry#(lf)", "Poor/Out of Shape/ Centre Front/Gore out of shape/Slanted#(lf)", "Flipping up/Curling down", "Uneven shearing /Gap/ Gathering", "Pointy/ Uneven Seam Allowance/Pleat", "Measurement (+/-)#(lf)", "Wire Play +/-", "Raw edge/ Exposed#(lf)", "Uncut/Loose Thread #(lf)", "Crease Mark#(lf)", "Dirty/ Chalk/ pen mark#(lf)", "Oil /Stain Mark #(lf)", "Hole/Needle hole/Cut#(lf)", "Snagging/Fraying#(lf)", "Bartack Missing/ Improper Bartack", "Trim/ Label Missing/ Label Not Readable", "Trim Improperly attached", "Sharp Edge#(lf)", "Shade Variation #(lf)", "Straps Insecure/Misplaced/Uneven/Twisted", "Wrong/ Incorrect Size", "Other defects", "Total Defect", "Column3", "Column4", "Column5", "Column6", "DHU%", "RFT%", "Index", "Reject", "PID", "Tracking No"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Source.Name", "Month", "Date", "Inspection Stage", "Factory", "Building", "Floor", "Line #(lf)No", "Item", "Buyer", "Style", "Color", "MO", "Operation #(lf)Name", "Operators#(lf)ID", "Inspector#(lf)Name", "Inspectors ID", "Total Check Quantity", "Improper SPI/width stitches#(lf)", "Skip stitches#(lf)", "Stitch Tension Tight / Loose /Cracking #(lf)", "Broken Stitch#(lf)", "Open Seam#(lf)", "Poor/ join stitch#(lf)", "Cup Loose/Tight#(lf)", "Puckering/Twisted/Wavy", "High-Low/ asymmetry#(lf)", "Poor/Out of Shape/ Centre Front/Gore out of shape/Slanted#(lf)", "Flipping up/Curling down", "Uneven shearing /Gap/ Gathering", "Pointy/ Uneven Seam Allowance/Pleat", "Measurement (+/-)#(lf)", "Wire Play +/-", "Raw edge/ Exposed#(lf)", "Uncut/Loose Thread #(lf)", "Crease Mark#(lf)", "Dirty/ Chalk/ pen mark#(lf)", "Oil /Stain Mark #(lf)", "Hole/Needle hole/Cut#(lf)", "Snagging/Fraying#(lf)", "Bartack Missing/ Improper Bartack", "Trim/ Label Missing/ Label Not Readable", "Trim Improperly attached", "Sharp Edge#(lf)", "Shade Variation #(lf)", "Straps Insecure/Misplaced/Uneven/Twisted", "Wrong/ Incorrect Size", "Other defects", "Total Defect", "Column3", "Column4", "Column5", "Column6", "DHU%", "RFT%", "Index", "Reject", "PID", "Tracking No"})
+		in
+		  #"Reordered Columns"
+	lineageTag: ef20c566-3a6f-489f-a2d9-2cd1af4b9e8b
+	queryGroup: 'Query Errors - 25/01/2026 09:16:12'
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in Inline (2)' =
+		let
+		Source = Inline,
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Source.Name", "Month", "Date", "Inspection Stage", "Factory", "Building", "Floor", "Line #(lf)No", "Item", "Buyer", "Style", "Color", "MO", "Operation #(lf)Name", "Operators#(lf)ID", "Inspector#(lf)Name", "Inspectors ID", "Total Check Quantity", "Improper SPI/width stitches#(lf)", "Skip stitches#(lf)", "Stitch Tension Tight / Loose /Cracking #(lf)", "Broken Stitch#(lf)", "Open Seam#(lf)", "Poor/ join stitch#(lf)", "Cup Loose/Tight#(lf)", "Puckering/Twisted/Wavy", "High-Low/ asymmetry#(lf)", "Poor/Out of Shape/ Centre Front/Gore out of shape/Slanted#(lf)", "Flipping up/Curling down", "Uneven shearing /Gap/ Gathering", "Pointy/ Uneven Seam Allowance/Pleat", "Measurement (+/-)#(lf)", "Wire Play +/-", "Raw edge/ Exposed#(lf)", "Uncut/Loose Thread #(lf)", "Crease Mark#(lf)", "Dirty/ Chalk/ pen mark#(lf)", "Oil /Stain Mark #(lf)", "Hole/Needle hole/Cut#(lf)", "Snagging/Fraying#(lf)", "Bartack Missing/ Improper Bartack", "Trim/ Label Missing/ Label Not Readable", "Trim Improperly attached", "Sharp Edge#(lf)", "Shade Variation #(lf)", "Straps Insecure/Misplaced/Uneven/Twisted", "Wrong/ Incorrect Size", "Other defects", "Total Defect", "Column3", "Column4", "Column5", "Column6", "DHU%", "RFT%", "Index", "PID", "Tracking No"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Source.Name", "Month", "Date", "Inspection Stage", "Factory", "Building", "Floor", "Line #(lf)No", "Item", "Buyer", "Style", "Color", "MO", "Operation #(lf)Name", "Operators#(lf)ID", "Inspector#(lf)Name", "Inspectors ID", "Total Check Quantity", "Improper SPI/width stitches#(lf)", "Skip stitches#(lf)", "Stitch Tension Tight / Loose /Cracking #(lf)", "Broken Stitch#(lf)", "Open Seam#(lf)", "Poor/ join stitch#(lf)", "Cup Loose/Tight#(lf)", "Puckering/Twisted/Wavy", "High-Low/ asymmetry#(lf)", "Poor/Out of Shape/ Centre Front/Gore out of shape/Slanted#(lf)", "Flipping up/Curling down", "Uneven shearing /Gap/ Gathering", "Pointy/ Uneven Seam Allowance/Pleat", "Measurement (+/-)#(lf)", "Wire Play +/-", "Raw edge/ Exposed#(lf)", "Uncut/Loose Thread #(lf)", "Crease Mark#(lf)", "Dirty/ Chalk/ pen mark#(lf)", "Oil /Stain Mark #(lf)", "Hole/Needle hole/Cut#(lf)", "Snagging/Fraying#(lf)", "Bartack Missing/ Improper Bartack", "Trim/ Label Missing/ Label Not Readable", "Trim Improperly attached", "Sharp Edge#(lf)", "Shade Variation #(lf)", "Straps Insecure/Misplaced/Uneven/Twisted", "Wrong/ Incorrect Size", "Other defects", "Total Defect", "Column3", "Column4", "Column5", "Column6", "DHU%", "RFT%", "Index", "PID", "Tracking No"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 502dd18b-3e9f-4107-9cef-830ebb17c806
+	queryGroup: 'Query Errors - 25/01/2026 09:25:01'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in Endline (2)' =
+		let
+		Source = Endline,
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Source.Name", "Month", "Date", "Inspection Stage", "Factory", "Building", "Floor", "Line #(lf)No", "Item", "Buyer", "Style", "Color", "MO", "Operation #(lf)Name", "Operators#(lf)ID", "Inspector#(lf)Name", "Inspectors ID", "Total Check Quantity", "Improper SPI/width stitches#(lf)", "Skip stitches#(lf)", "Stitch Tension Tight / Loose /Cracking #(lf)", "Broken Stitch#(lf)", "Open Seam#(lf)", "Poor/ join stitch#(lf)", "Cup Loose/Tight#(lf)", "Puckering/Twisted/Wavy", "High-Low/ asymmetry#(lf)", "Poor/Out of Shape/ Centre Front/Gore out of shape/Slanted#(lf)", "Flipping up/Curling down", "Uneven shearing /Gap/ Gathering", "Pointy/ Uneven Seam Allowance/Pleat", "Measurement (+/-)#(lf)", "Wire Play +/-", "Raw edge/ Exposed#(lf)", "Uncut/Loose Thread #(lf)", "Crease Mark#(lf)", "Dirty/ Chalk/ pen mark#(lf)", "Oil /Stain Mark #(lf)", "Hole/Needle hole/Cut#(lf)", "Snagging/Fraying#(lf)", "Bartack Missing/ Improper Bartack", "Trim/ Label Missing/ Label Not Readable", "Trim Improperly attached", "Sharp Edge#(lf)", "Shade Variation #(lf)", "Straps Insecure/Misplaced/Uneven/Twisted", "Wrong/ Incorrect Size", "Other defects", "Total Defect", "Column3", "Column4", "Column5", "Column6", "DHU%", "RFT%", "Index", "Reject", "PID", "Tracking No"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Source.Name", "Month", "Date", "Inspection Stage", "Factory", "Building", "Floor", "Line #(lf)No", "Item", "Buyer", "Style", "Color", "MO", "Operation #(lf)Name", "Operators#(lf)ID", "Inspector#(lf)Name", "Inspectors ID", "Total Check Quantity", "Improper SPI/width stitches#(lf)", "Skip stitches#(lf)", "Stitch Tension Tight / Loose /Cracking #(lf)", "Broken Stitch#(lf)", "Open Seam#(lf)", "Poor/ join stitch#(lf)", "Cup Loose/Tight#(lf)", "Puckering/Twisted/Wavy", "High-Low/ asymmetry#(lf)", "Poor/Out of Shape/ Centre Front/Gore out of shape/Slanted#(lf)", "Flipping up/Curling down", "Uneven shearing /Gap/ Gathering", "Pointy/ Uneven Seam Allowance/Pleat", "Measurement (+/-)#(lf)", "Wire Play +/-", "Raw edge/ Exposed#(lf)", "Uncut/Loose Thread #(lf)", "Crease Mark#(lf)", "Dirty/ Chalk/ pen mark#(lf)", "Oil /Stain Mark #(lf)", "Hole/Needle hole/Cut#(lf)", "Snagging/Fraying#(lf)", "Bartack Missing/ Improper Bartack", "Trim/ Label Missing/ Label Not Readable", "Trim Improperly attached", "Sharp Edge#(lf)", "Shade Variation #(lf)", "Straps Insecure/Misplaced/Uneven/Twisted", "Wrong/ Incorrect Size", "Other defects", "Total Defect", "Column3", "Column4", "Column5", "Column6", "DHU%", "RFT%", "Index", "Reject", "PID", "Tracking No"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 73545c32-d7ba-4228-86c2-9055794bb09b
+	queryGroup: 'Query Errors - 25/01/2026 09:25:01'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

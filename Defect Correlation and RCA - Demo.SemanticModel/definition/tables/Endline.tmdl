@@ -1,0 +1,539 @@
+table Endline
+	lineageTag: 53a70530-45f0-46f1-a52d-d7484d0b2937
+
+	column 'Source.Name'
+		dataType: string
+		lineageTag: 7e363a4d-2abb-4d8c-bea6-79c729304162
+		summarizeBy: none
+		sourceColumn: Source.Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: string
+		lineageTag: 9ca0cf0a-b7b9-47b9-bcad-68c0a599f004
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9871e936-6bc0-4cca-a9a8-13f72406ca7a
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: ef90e272-0cc3-4aa0-b343-591dd31ab69d
+			defaultHierarchy: LocalDateTable_fff04bf4-e87a-48c0-bb61-207a322da0ad.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Inspection Stage'
+		dataType: string
+		lineageTag: e5599843-cbbe-49c8-bdb0-8689cc3ba3aa
+		summarizeBy: none
+		sourceColumn: Inspection Stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Factory
+		dataType: string
+		lineageTag: 4a9e670c-3959-4fed-9ce8-064a8db06fde
+		summarizeBy: none
+		sourceColumn: Factory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Building
+		dataType: string
+		lineageTag: 82913ca2-2805-40c9-aafc-785bfe2568d0
+		summarizeBy: none
+		sourceColumn: Building
+
+		annotation SummarizationSetBy = Automatic
+
+	column Floor
+		dataType: string
+		lineageTag: 595a9468-532a-4210-927c-b00772af7e0b
+		summarizeBy: none
+		sourceColumn: Floor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Line No'
+		dataType: string
+		lineageTag: 521be5e0-4fc9-4483-a344-f1c4595b99de
+		summarizeBy: none
+		sourceColumn: Line No
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: 45f0bfd0-2ec5-4504-bbc0-4f2a8ed64e78
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column Buyer
+		dataType: string
+		lineageTag: 2cee69dc-38fe-40be-832a-27bdca5cf61d
+		summarizeBy: none
+		sourceColumn: Buyer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Style
+		dataType: string
+		lineageTag: 354996c4-a147-4fb2-b3b5-afa633ea9c07
+		summarizeBy: none
+		sourceColumn: Style
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		lineageTag: 46706b43-0d5d-4778-8e6c-fd42fbb3dd64
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column MO
+		dataType: string
+		lineageTag: 5fe002e9-7140-433a-80e2-255809a26c9d
+		summarizeBy: none
+		sourceColumn: MO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Name'
+		dataType: string
+		lineageTag: 69f8394d-eeec-4824-b97f-8e8ab6b1dcf0
+		summarizeBy: none
+		sourceColumn: Operation Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column OperatorsID
+		dataType: string
+		lineageTag: 1b1675cd-cf6c-4985-9ebb-38d20e46dc3b
+		summarizeBy: none
+		sourceColumn: OperatorsID
+
+		annotation SummarizationSetBy = Automatic
+
+	column InspectorName
+		dataType: string
+		lineageTag: 1b2a1ca8-2e5e-4db4-af9c-e8c6e0395286
+		summarizeBy: none
+		sourceColumn: InspectorName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inspectors ID'
+		dataType: string
+		lineageTag: 91a37d4c-5a9e-4bcd-82a8-86feca75031c
+		summarizeBy: none
+		sourceColumn: Inspectors ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Check Quantity'
+		dataType: int64
+		formatString: 0
+		lineageTag: d44651bc-8abc-4ce0-a2f2-afd97ea18b78
+		summarizeBy: sum
+		sourceColumn: Total Check Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Improper SPI/width stitches'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d689fa7-76ec-4be7-b3ba-554300413707
+		summarizeBy: sum
+		sourceColumn: Improper SPI/width stitches
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Skip stitches'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0043d304-3bd4-49f1-8193-ee9e47f9b114
+		summarizeBy: sum
+		sourceColumn: Skip stitches
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Stitch Tension Tight / Loose /Cracking '
+		dataType: int64
+		formatString: 0
+		lineageTag: 79e33c4c-7a5b-419a-b126-ba260f4a5cb6
+		summarizeBy: sum
+		sourceColumn: "Stitch Tension Tight / Loose /Cracking "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Broken Stitch'
+		dataType: int64
+		formatString: 0
+		lineageTag: bd2a492d-82b5-4ec1-9a92-726dcb222e01
+		summarizeBy: sum
+		sourceColumn: Broken Stitch
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Open Seam'
+		dataType: int64
+		formatString: 0
+		lineageTag: b1e18658-1d8f-4dca-9cd2-2c1812a08518
+		summarizeBy: sum
+		sourceColumn: Open Seam
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Poor/ join stitch'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ecb8dca-7b3c-4ca0-b884-c0d0f12d976d
+		summarizeBy: sum
+		sourceColumn: Poor/ join stitch
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cup Loose/Tight'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6406694a-07ed-41d2-9335-50f6dfadd297
+		summarizeBy: sum
+		sourceColumn: Cup Loose/Tight
+
+		annotation SummarizationSetBy = Automatic
+
+	column Puckering/Twisted/Wavy
+		dataType: int64
+		formatString: 0
+		lineageTag: 534d74f8-e083-4dcd-a45f-c65a64153500
+		summarizeBy: sum
+		sourceColumn: Puckering/Twisted/Wavy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'High-Low/ asymmetry'
+		dataType: int64
+		formatString: 0
+		lineageTag: b5feabb6-a933-4880-a691-4bc2e4541602
+		summarizeBy: sum
+		sourceColumn: High-Low/ asymmetry
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Poor/Out of Shape/ Centre Front/Gore out of shape/Slanted'
+		dataType: int64
+		formatString: 0
+		lineageTag: b9483597-d231-4a32-9727-ac49ea5e8bd1
+		summarizeBy: sum
+		sourceColumn: Poor/Out of Shape/ Centre Front/Gore out of shape/Slanted
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Flipping up/Curling down'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cb2c8a2-01de-453f-adba-b697b763ece5
+		summarizeBy: sum
+		sourceColumn: Flipping up/Curling down
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Uneven shearing /Gap/ Gathering'
+		dataType: int64
+		formatString: 0
+		lineageTag: 90342816-2593-466e-a043-c8116840d68a
+		summarizeBy: sum
+		sourceColumn: Uneven shearing /Gap/ Gathering
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pointy/ Uneven Seam Allowance/Pleat'
+		dataType: int64
+		formatString: 0
+		lineageTag: 70f52356-2737-4064-b111-2e417720f132
+		summarizeBy: sum
+		sourceColumn: Pointy/ Uneven Seam Allowance/Pleat
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Measurement (+/-)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fbb9ad5-233e-4f9b-ad3a-e6ae96d0c2a6
+		summarizeBy: sum
+		sourceColumn: Measurement (+/-)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Wire Play +/-'
+		dataType: int64
+		formatString: 0
+		lineageTag: 229b5fe7-26ee-44c8-a84c-c2919f1ec7d0
+		summarizeBy: sum
+		sourceColumn: Wire Play +/-
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Raw edge/ Exposed'
+		dataType: int64
+		formatString: 0
+		lineageTag: 978928ed-6c9f-41aa-b7ee-fa51e48736d2
+		summarizeBy: sum
+		sourceColumn: Raw edge/ Exposed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Uncut/Loose Thread '
+		dataType: int64
+		formatString: 0
+		lineageTag: 28f3b8be-7bbe-433e-9715-9738bd277217
+		summarizeBy: sum
+		sourceColumn: "Uncut/Loose Thread "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Crease Mark'
+		dataType: int64
+		formatString: 0
+		lineageTag: 20db3d03-45d2-47e7-97ca-93ae6dfe0c15
+		summarizeBy: sum
+		sourceColumn: Crease Mark
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dirty/ Chalk/ pen mark'
+		dataType: int64
+		formatString: 0
+		lineageTag: f890ddb0-8402-4c82-b026-ff4bc5cf23f9
+		summarizeBy: sum
+		sourceColumn: Dirty/ Chalk/ pen mark
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Oil /Stain Mark '
+		dataType: int64
+		formatString: 0
+		lineageTag: dbf93a51-caba-40db-a177-8dd9e2607f2b
+		summarizeBy: sum
+		sourceColumn: "Oil /Stain Mark "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hole/Needle hole/Cut'
+		dataType: int64
+		formatString: 0
+		lineageTag: 651c8bc1-1da8-4447-b2f9-8aefb5768b0d
+		summarizeBy: sum
+		sourceColumn: Hole/Needle hole/Cut
+
+		annotation SummarizationSetBy = Automatic
+
+	column Snagging/Fraying
+		dataType: int64
+		formatString: 0
+		lineageTag: e0263674-c569-4ad5-b163-e4ce0d740792
+		summarizeBy: sum
+		sourceColumn: Snagging/Fraying
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bartack Missing/ Improper Bartack'
+		dataType: int64
+		formatString: 0
+		lineageTag: bd457ab8-13ba-49ad-bba7-142fa910c187
+		summarizeBy: sum
+		sourceColumn: Bartack Missing/ Improper Bartack
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trim/ Label Missing/ Label Not Readable'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5015f044-a579-4733-978e-815c0a4622d2
+		summarizeBy: sum
+		sourceColumn: Trim/ Label Missing/ Label Not Readable
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trim Improperly attached'
+		dataType: int64
+		formatString: 0
+		lineageTag: 834e803f-bd0b-4c76-b86b-f500eea6ae13
+		summarizeBy: sum
+		sourceColumn: Trim Improperly attached
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sharp Edge'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f14997d-a1fe-4546-a061-1df0da0658c3
+		summarizeBy: sum
+		sourceColumn: Sharp Edge
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shade Variation '
+		dataType: int64
+		formatString: 0
+		lineageTag: 869ec8e8-e1e5-4468-8335-7283d3d35a5e
+		summarizeBy: sum
+		sourceColumn: "Shade Variation "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Straps Insecure/Misplaced/Uneven/Twisted'
+		dataType: int64
+		formatString: 0
+		lineageTag: 413e5b00-4cd8-462f-be03-d1f50296600d
+		summarizeBy: sum
+		sourceColumn: Straps Insecure/Misplaced/Uneven/Twisted
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Wrong/ Incorrect Size'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2faa1fbc-15f9-41ce-a539-9f494c387d6d
+		summarizeBy: sum
+		sourceColumn: Wrong/ Incorrect Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Other defects'
+		dataType: int64
+		formatString: 0
+		lineageTag: 14cb36a6-f2dc-4d3d-a3a9-911b4b01d63e
+		summarizeBy: sum
+		sourceColumn: Other defects
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Defect'
+		dataType: int64
+		formatString: 0
+		lineageTag: a20042e2-00ee-4719-886c-38f80e41c040
+		summarizeBy: sum
+		sourceColumn: Total Defect
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column3
+		dataType: string
+		lineageTag: 68d8b768-42b8-4ee2-8b67-36dc2bfc009d
+		summarizeBy: none
+		sourceColumn: Column3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column4
+		dataType: string
+		lineageTag: 764f9a6c-a909-4c5c-bbd4-d304959f7354
+		summarizeBy: none
+		sourceColumn: Column4
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column5
+		dataType: string
+		lineageTag: f55f0e67-68d8-49d1-823e-5add73ace070
+		summarizeBy: none
+		sourceColumn: Column5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column6
+		dataType: string
+		lineageTag: 7797dc2b-f2df-4b6e-ba17-7b9b1f3d81e0
+		summarizeBy: none
+		sourceColumn: Column6
+
+		annotation SummarizationSetBy = Automatic
+
+	column DHU%
+		dataType: int64
+		formatString: 0
+		lineageTag: 132f55d2-f56e-4ffb-a7f8-91118b361368
+		summarizeBy: sum
+		sourceColumn: DHU%
+
+		annotation SummarizationSetBy = Automatic
+
+	column RFT%
+		dataType: double
+		lineageTag: 98c90770-51c3-4bad-9c45-d36f971f31a0
+		summarizeBy: sum
+		sourceColumn: RFT%
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Index
+		dataType: string
+		lineageTag: 32608fb0-c542-4ec1-bea7-1b53dd5f23df
+		summarizeBy: none
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reject
+		dataType: string
+		lineageTag: eee1b849-439c-408e-87a5-44831d24570d
+		summarizeBy: none
+		sourceColumn: Reject
+
+		annotation SummarizationSetBy = Automatic
+
+	column PID
+		dataType: string
+		lineageTag: a56ede0c-a187-4c86-8fbc-2940cd66f96e
+		summarizeBy: none
+		sourceColumn: PID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tracking No'
+		dataType: string
+		lineageTag: 7298b30d-5aa7-4b43-90e0-9ade62ce3a54
+		summarizeBy: none
+		sourceColumn: Tracking No
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Endline = m
+		mode: import
+		source =
+				let
+				    Source = Folder.Files("C:\Users\mohaimin.chowdhury\OneDrive - Hop Lun\Personal Project - Transformation\Database\Monthly Database\Endline"),
+				    #"Filtered Hidden Files1" = Table.SelectRows(Source, each [Attributes]?[Hidden]? <> true),
+				    #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Hidden Files1", "Transform File (2)", each #"Transform File (2)"([Content])),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Transform File (2)"}),
+				    #"Expanded Table Column1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Transform File (2)", Table.ColumnNames(#"Transform File (2)"(#"Sample File (2)"))),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Table Column1",{{"Source.Name", type text}, {"Month", type text}, {"Date", type date}, {"Inspection Stage", type text}, {"Factory", type text}, {"Building", type text}, {"Floor", type text}, {"Line #(lf)No", type text}, {"Item", type text}, {"Buyer", type text}, {"Style", type text}, {"Color", type text}, {"MO", type text}, {"Operation #(lf)Name", type text}, {"Operators#(lf)ID", type text}, {"Inspector#(lf)Name", type text}, {"Inspectors ID", type text}, {"Total Check Quantity", Int64.Type}, {"Improper SPI/width stitches#(lf)", Int64.Type}, {"Skip stitches#(lf)", Int64.Type}, {"Stitch Tension Tight / Loose /Cracking #(lf)", Int64.Type}, {"Broken Stitch#(lf)", Int64.Type}, {"Open Seam#(lf)", Int64.Type}, {"Poor/ join stitch#(lf)", Int64.Type}, {"Cup Loose/Tight#(lf)", Int64.Type}, {"Puckering/Twisted/Wavy", Int64.Type}, {"High-Low/ asymmetry#(lf)", Int64.Type}, {"Poor/Out of Shape/ Centre Front/Gore out of shape/Slanted#(lf)", Int64.Type}, {"Flipping up/Curling down", Int64.Type}, {"Uneven shearing /Gap/ Gathering", Int64.Type}, {"Pointy/ Uneven Seam Allowance/Pleat", Int64.Type}, {"Measurement (+/-)#(lf)", Int64.Type}, {"Wire Play +/-", Int64.Type}, {"Raw edge/ Exposed#(lf)", Int64.Type}, {"Uncut/Loose Thread #(lf)", Int64.Type}, {"Crease Mark#(lf)", Int64.Type}, {"Dirty/ Chalk/ pen mark#(lf)", Int64.Type}, {"Oil /Stain Mark #(lf)", Int64.Type}, {"Hole/Needle hole/Cut#(lf)", Int64.Type}, {"Snagging/Fraying#(lf)", Int64.Type}, {"Bartack Missing/ Improper Bartack", Int64.Type}, {"Trim/ Label Missing/ Label Not Readable", Int64.Type}, {"Trim Improperly attached", Int64.Type}, {"Sharp Edge#(lf)", Int64.Type}, {"Shade Variation #(lf)", Int64.Type}, {"Straps Insecure/Misplaced/Uneven/Twisted", Int64.Type}, {"Wrong/ Incorrect Size", Int64.Type}, {"Other defects", Int64.Type}, {"Total Defect", Int64.Type}, {"Column3", type any}, {"Column4", type any}, {"Column5", type any}, {"Column6", type any}, {"DHU%", Int64.Type}, {"RFT%", type number}, {"Index", type text}, {"Reject", type any}, {"PID", type text}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "Tracking No", each Date.ToText([Date],"dd-MM-yyyy")&"-"&[Inspection Stage]&"-"&[Factory]&"-"&[Index]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"Tracking No", type text}}),
+				    #"Removed Errors" = Table.RemoveRowsWithErrors(#"Changed Type1", {"Source.Name"})
+				in
+				    #"Removed Errors"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

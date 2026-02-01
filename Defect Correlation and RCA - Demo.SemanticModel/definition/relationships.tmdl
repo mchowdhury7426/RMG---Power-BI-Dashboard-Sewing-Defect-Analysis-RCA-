@@ -1,0 +1,104 @@
+relationship efdfa294-0a88-406f-a266-4aa6d94690ee
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Inline.Date
+	toColumn: LocalDateTable_c66aac1a-fb76-49f7-b3ef-b7c0c5cf04e9.Date
+
+relationship ef90e272-0cc3-4aa0-b343-591dd31ab69d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Endline.Date
+	toColumn: LocalDateTable_fff04bf4-e87a-48c0-bb61-207a322da0ad.Date
+
+relationship fe46c384-bf18-4b36-9251-ee286e75927b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Prefinal.Date
+	toColumn: LocalDateTable_66a95c58-38e7-4d13-8f64-8709bf46dc33.Date
+
+relationship 43970f7c-bcac-4b5c-9b6a-9c617fc7f7a0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Central Database'.Date
+	toColumn: LocalDateTable_d59da0ec-1f2e-4520-ace9-70c4899badaa.Date
+
+relationship d554da6d-7523-4a10-870f-7cfef1e5248c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Central Database Unpivoted'.Date
+	toColumn: LocalDateTable_c08f2702-c078-4030-b596-424519f202c6.Date
+
+relationship 34fe38f9-6ce9-e51d-eb3a-f71027a6d087
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Inline.'Tracking No'
+	toColumn: 'Central Database'.'Tracking No'
+
+relationship e60a82a8-52b8-646a-68f9-0b6fc45d9a8c
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Endline.'Tracking No'
+	toColumn: 'Central Database'.'Tracking No'
+
+relationship 107ac84f-2ea8-0fd7-4b30-d0367c7a9fb5
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Prefinal.'Tracking No'
+	toColumn: 'Central Database'.'Tracking No'
+
+relationship 3e16301a-0248-2782-fb49-663d7c049863
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Central Database Unpivoted'.'Tracking No'
+	toColumn: 'Central Database'.'Tracking No'
+
+relationship 32bfadaf-e092-fd8f-6d42-b2c76a61b121
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Central Database'.Style
+	toColumn: 'SC Factory schedule listing - B'.'Style No'
+
+relationship 921eeb89-8559-4f99-84d0-038fe7d82bc3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Final PID Pivot'.Date
+	toColumn: LocalDateTable_a9583a99-a459-468e-9e94-0d29f69eb627.Date
+
+relationship 64a4f92c-4c9c-4a84-a3e4-aa82b8ee44c4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Final Report Pivot'.Date
+	toColumn: LocalDateTable_ebe408ff-eb3f-493c-b4e0-7b38a540344b.Date
+
+relationship 1834f719-e5f4-4618-8206-1e0715a48280
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Final Measurement Pivot'.Date
+	toColumn: LocalDateTable_1fc0519d-8814-4670-bd29-33d1eb5183de.Date
+
+relationship 63a73e43-1d0b-4a2c-4690-ece5d524319e
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Final PID Pivot'.Style
+	toColumn: 'SC Factory schedule listing - B'.'Style No'
+
+relationship 8826ede6-421f-3f8e-d028-f239d920759b
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Final PID Pivot'.'Inspection Report'
+	toColumn: 'Final Report Pivot'.'Inspection Report'
+
+relationship be82c80b-553e-0608-5fd7-cf2be55b3eae
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Final Report Pivot'.'Inspection Report'
+	toColumn: 'Final Measurement Pivot'.'Inspection Report'
+
+relationship 292b40a3-f509-499b-bdca-38c77ec3d84d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Final Report Unpivoted'.Date
+	toColumn: LocalDateTable_e2dc49d6-e853-48cf-9c82-76da1b7dda6c.Date
+
+relationship 0188d5a5-9573-41c9-b679-7660e1ba054c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Final Measurement Unpivoted'.Date
+	toColumn: LocalDateTable_fe103ed4-22aa-42b8-809d-afb69aff594f.Date
+
+relationship 8383d03b-0c5e-87b7-d93d-6730918a0fbf
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Final Report Unpivoted'.'Inspection Report'
+	toColumn: 'Final Report Pivot'.'Inspection Report'
+
+relationship da31d9d8-dd3d-462d-b609-b361004b94d0
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Final Measurement Unpivoted'.'Inspection Report'
+	toColumn: 'Final Measurement Pivot'.'Inspection Report'
+

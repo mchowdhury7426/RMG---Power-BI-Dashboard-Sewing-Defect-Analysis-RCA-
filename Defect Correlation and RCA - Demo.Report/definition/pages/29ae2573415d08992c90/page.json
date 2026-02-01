@@ -1,0 +1,282 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "29ae2573415d08992c90",
+  "displayName": "Defect Correlation",
+  "displayOption": "FitToPage",
+  "height": 820,
+  "width": 1648,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9a05d4f67e3d090aedcc",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Central Database"
+              }
+            },
+            "Property": "Factory"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "c",
+              "Entity": "Central Database",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "c"
+                              }
+                            },
+                            "Property": "Factory"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "eeafa3e310e0d124732e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Central Database Unpivoted"
+              }
+            },
+            "Property": "Buyer"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "c",
+              "Entity": "Central Database Unpivoted",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "c"
+                              }
+                            },
+                            "Property": "Buyer"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F5F5F5'"
+                  }
+                }
+              }
+            }
+          },
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "''"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "Literal": {
+                    "Value": "''"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Designer (1).png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "Designer_(1)31230886362235644.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fill'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "ae1a2b397cc06064b683",
+      "target": "29c00bec3b570cc11965",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ae1a2b397cc06064b683",
+      "target": "0854f870ad9c0039a714",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5718781de8bb2211a682",
+      "target": "0854f870ad9c0039a714",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5718781de8bb2211a682",
+      "target": "29c00bec3b570cc11965",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cca78be312179575b612",
+      "target": "29c00bec3b570cc11965",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ae1a2b397cc06064b683",
+      "target": "4f467c445412abbddada",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5718781de8bb2211a682",
+      "target": "4f467c445412abbddada",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ae1a2b397cc06064b683",
+      "target": "e460fef18ca89594d7e1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5718781de8bb2211a682",
+      "target": "e460fef18ca89594d7e1",
+      "type": "NoFilter"
+    }
+  ]
+}

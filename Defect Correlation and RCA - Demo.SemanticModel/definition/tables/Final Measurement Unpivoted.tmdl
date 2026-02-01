@@ -1,0 +1,80 @@
+table 'Final Measurement Unpivoted'
+	lineageTag: 2fb5e814-a80d-4433-9310-2ede526c1b9f
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: da07391c-7a11-43fb-8fa8-d95173f7fe4b
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 0188d5a5-9573-41c9-b679-7660e1ba054c
+			defaultHierarchy: LocalDateTable_fe103ed4-22aa-42b8-809d-afb69aff594f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Factory
+		dataType: string
+		lineageTag: 22714303-8d11-4de9-99ce-b3956010dd8f
+		summarizeBy: none
+		sourceColumn: Factory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: 0b657e26-d8c3-4293-a620-63acc5a7669b
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inspection Report'
+		dataType: string
+		lineageTag: 397db6bd-daac-48b5-8b63-fc41a27b8913
+		summarizeBy: none
+		sourceColumn: Inspection Report
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Defect Name'
+		dataType: string
+		lineageTag: 58421154-2a6c-45be-9fd4-0f1d271757c0
+		summarizeBy: none
+		sourceColumn: Defect Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Defect QTY'
+		dataType: int64
+		formatString: 0
+		lineageTag: cce32c4f-8acb-4510-8f8f-f7bcc155997c
+		summarizeBy: sum
+		sourceColumn: Defect QTY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Final Measurement Unpivoted' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\mohaimin.chowdhury\OneDrive - Hop Lun\Personal Project - Transformation\Database\Monthly Database\Final Reports\Final - Measurement Reports.xlsx"), null, true),
+				    #"Final Measurement Pivot_Sheet" = Source{[Item="Final Measurement Pivot",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Final Measurement Pivot_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Factory", type text}, {"Type", type text}, {"Inspection Report", type text}, {"Inspection Report Link", type text}, {"Sample Size", Int64.Type}, {"Measurement Sample", Int64.Type}, {"B18.R - MIDRIFF BELOW BUST", Int64.Type}, {"B35.R - BRA BOTTOM BAND", Int64.Type}, {"B35.R - BRA BOTTOM BAND-1", Int64.Type}, {"B39.R - BRA NECKLINE", Int64.Type}, {"B42.VG - BRA BOTTOM BK EDGE-Vendor to Grade", Int64.Type}, {"C16.P - WAIST RIGID/ELASTIC RELAXED-Underwear", Int64.Type}, {"C16.R - WAIST RIGID/ELASTIC RELAXED", Int64.Type}, {"F37.R - SHOULDER STRAP LENGTH BK", Int64.Type}, {"R02.R - FRT RISE", Int64.Type}, {"V02.R - LEG OPENING RLXD", Int64.Type}, {"R03.R - BK RISE", Int64.Type}, {"B47.R - BRA SIDE CUP", Int64.Type}, {"M36.SWM - CF TORSO LENGTH-Swimwear", Int64.Type}, {"F44.R - BK BRA STRAP POSITION", Int64.Type}, {"B39.R - BRA NECKLINE-2", Int64.Type}, {"R02.P - FRT RISE-Underwear", Int64.Type}, {"F35.R - SHOULDER STRAP LENGTH", Int64.Type}, {"B35.R - BRA BOTTOM BAND-2", Int64.Type}, {"B37.R - BRA SIDE BAND HEIGHT", Int64.Type}, {"R03.P - BK RISE-Underwear", Int64.Type}, {"B48.VG - BRA TOP BACK BAND - VENDOR TO GRADE", Int64.Type}, {"B37.R - BRA SIDE BAND HEIGHT-1", Int64.Type}, {"E01.R - SWEEP - Grade as Chest/Bust", Int64.Type}, {"M Total Defect", Int64.Type}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Inspection Report Link", "Sample Size"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Columns",{"Date", "Factory", "Type", "Inspection Report", "Measurement Sample", "B18.R - MIDRIFF BELOW BUST", "B35.R - BRA BOTTOM BAND", "B35.R - BRA BOTTOM BAND-1", "B39.R - BRA NECKLINE", "B42.VG - BRA BOTTOM BK EDGE-Vendor to Grade", "C16.P - WAIST RIGID/ELASTIC RELAXED-Underwear", "C16.R - WAIST RIGID/ELASTIC RELAXED", "F37.R - SHOULDER STRAP LENGTH BK", "R02.R - FRT RISE", "V02.R - LEG OPENING RLXD", "R03.R - BK RISE", "B47.R - BRA SIDE CUP", "M36.SWM - CF TORSO LENGTH-Swimwear", "F44.R - BK BRA STRAP POSITION", "B39.R - BRA NECKLINE-2", "R02.P - FRT RISE-Underwear", "F35.R - SHOULDER STRAP LENGTH", "B35.R - BRA BOTTOM BAND-2", "B37.R - BRA SIDE BAND HEIGHT", "R03.P - BK RISE-Underwear", "B48.VG - BRA TOP BACK BAND - VENDOR TO GRADE", "B37.R - BRA SIDE BAND HEIGHT-1", "M Total Defect", "E01.R - SWEEP - Grade as Chest/Bust"}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Reordered Columns",{"M Total Defect", "Measurement Sample"}),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Columns1", {"Date", "Factory", "Type", "Inspection Report"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "Defect Name"}, {"Value", "Defect QTY"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

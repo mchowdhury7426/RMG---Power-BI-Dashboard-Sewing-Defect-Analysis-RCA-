@@ -1,0 +1,154 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.1.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY25SU12",
+      "reportVersionAtImport": {
+        "visual": "2.5.0",
+        "report": "3.1.0",
+        "page": "2.3.0"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "30a27dcc7db00bae29ea",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Central Database"
+              }
+            },
+            "Property": "Buyer"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "c",
+              "Entity": "Central Database",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "c"
+                          }
+                        },
+                        "Property": "Buyer"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Buyer 17'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "visible": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY25SU12",
+          "path": "BaseThemes/CY25SU12.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Designer_(1)31230886362235644.png",
+          "path": "Designer_(1)31230886362235644.png",
+          "type": "Image"
+        },
+        {
+          "name": "Designer_(4)6150871921947557.png",
+          "path": "Designer_(4)6150871921947557.png",
+          "type": "Image"
+        },
+        {
+          "name": "Designer_(4)7388759593762245.png",
+          "path": "Designer_(4)7388759593762245.png",
+          "type": "Image"
+        },
+        {
+          "name": "Designer_(4)9019655046505557.png",
+          "path": "Designer_(4)9019655046505557.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

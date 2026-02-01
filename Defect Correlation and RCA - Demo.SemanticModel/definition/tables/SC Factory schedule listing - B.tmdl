@@ -1,0 +1,75 @@
+table 'SC Factory schedule listing - B'
+	lineageTag: 684a6ee7-9ca5-4235-8ffb-fa10cf484dc4
+
+	column 'Customer Name'
+		dataType: string
+		lineageTag: af96797b-7f4f-4a79-b960-324eceb2e32e
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Short Name'
+		dataType: string
+		lineageTag: ef3502e2-ffbe-4537-aa71-f8c3e23bf21c
+		summarizeBy: none
+		sourceColumn: Customer Short Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Colour
+		dataType: string
+		lineageTag: bda9069c-7272-4c28-b2f3-c6e7a1d6e912
+		summarizeBy: none
+		sourceColumn: Colour
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Batch No'
+		dataType: string
+		lineageTag: b4871acc-7384-4cc7-981f-500e555293bc
+		summarizeBy: none
+		sourceColumn: Batch No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Style No'
+		dataType: string
+		lineageTag: 293f1b54-dacc-4fb6-80d6-1c24106a03fe
+		summarizeBy: none
+		sourceColumn: Style No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cust Style'
+		dataType: string
+		lineageTag: 3a553f37-7d60-481a-aa44-2293aa29fddc
+		summarizeBy: none
+		sourceColumn: Cust Style
+
+		annotation SummarizationSetBy = Automatic
+
+	column Styling
+		dataType: string
+		lineageTag: 38e7136b-1ab7-4106-bc1b-f062d56d00a4
+		summarizeBy: none
+		sourceColumn: Styling
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'SC Factory schedule listing - B' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\mohaimin.chowdhury\OneDrive - Hop Lun\Personal Project - Transformation\Database\Monthly Database\Reference File\SC_Factory_Schedule_List.xlsx"), null, true),
+				    #"SC Factory schedule listing - B_Sheet" = Source{[Item="SC Factory schedule listing - B",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"SC Factory schedule listing - B_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Actual Factory", type any}, {"Order Type", type any}, {"Customer Name", type text}, {"Customer Short Name", type text}, {"Contract No", type any}, {"Colour", type text}, {"Batch No", type text}, {"Order Nature", type text}, {"Style No", type text}, {"Cust Style", type any}, {"Sewing SMV", type any}, {"Shoulder Strap SMV", type any}, {"English Program", type any}, {"English Style", type any}, {"Latest Ex-Fty Date", type any}, {"Order Qty", type any}, {"SMV Input Type", type any}, {"Styling", type text}, {"Cut qty", type any}, {"Sew Qty", type any}, {"Latest Cust Del Date", type any}, {"Org Def Ex-Fty", type any}, {"Planned Cutting Date", type any}, {"Revise Commit ETA Fty OK", type any}, {"Latest Material ETA from Logistic", type any}, {"style no. of pattern", type any}, {"Request Ex-Fty Date(MO Confirm)", type any}, {"Ship Mode", type text}, {"SC Destination Port", type any}, {"Customer Inv Date", type any}, {"Latest Def Ex-fty Date", type any}, {"Orig.Cust.Delivery Date", type any}, {"Org Ex Fty Date(inc Cust Req)", type any}, {"Org Cust Del Date(inc Cust Req)", type any}, {"Shipped Qty", type any}, {"Short Shipment Qty", type any}, {"Price", type any}, {"Price Unit", type any}, {"Price Unit Rate", type any}, {"Orig.Ex-Fty Date", type any}, {"Receive CP Date", type any}, {"New/Repeat", type any}, {"Analysis Code 1", type any}, {"Fty Sewing Floor", type any}, {"Revise Commit ETA Fty", type any}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Changed Type",{"Customer Name", "Customer Short Name", "Colour", "Batch No", "Style No", "Cust Style", "Styling"})
+				in
+				    #"Removed Other Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

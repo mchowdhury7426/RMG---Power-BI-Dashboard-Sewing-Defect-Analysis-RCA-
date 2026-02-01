@@ -1,0 +1,139 @@
+table 'Central Database Unpivoted'
+	lineageTag: 311e0050-febe-4f3f-9cf6-bb8a85ef1d76
+
+	column 'Source.Name'
+		dataType: string
+		lineageTag: 5651e3d5-2ea0-444c-a765-2f1e48290895
+		summarizeBy: none
+		sourceColumn: Source.Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6792e80c-1722-43b0-844f-2d6270672d7f
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: d554da6d-7523-4a10-870f-7cfef1e5248c
+			defaultHierarchy: LocalDateTable_c08f2702-c078-4030-b596-424519f202c6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Inspection Stage'
+		dataType: string
+		lineageTag: 998ae7c9-cb16-425c-bf07-7e7ecc7082b3
+		summarizeBy: none
+		sourceColumn: Inspection Stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Factory
+		dataType: string
+		lineageTag: 34a88f5e-debb-43a0-952f-b11a303ecc44
+		summarizeBy: none
+		sourceColumn: Factory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Building
+		dataType: string
+		lineageTag: 26cb926f-5538-4e71-8db8-f4d49fc17535
+		summarizeBy: none
+		sourceColumn: Building
+
+		annotation SummarizationSetBy = Automatic
+
+	column Floor
+		dataType: string
+		lineageTag: 3c1d545c-eb09-4b3d-a775-ed616b59f97e
+		summarizeBy: none
+		sourceColumn: Floor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Line No'
+		dataType: string
+		lineageTag: 7436034a-ee39-4f4d-b7e1-3af2f851a139
+		summarizeBy: none
+		sourceColumn: Line No
+
+		annotation SummarizationSetBy = Automatic
+
+	column Buyer
+		dataType: string
+		lineageTag: 7187df02-ef2d-49ac-9216-32071d122953
+		summarizeBy: none
+		sourceColumn: Buyer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Style
+		dataType: string
+		lineageTag: 73faa89e-5b2a-4bf0-b1f6-122a2f7ed2a3
+		summarizeBy: none
+		sourceColumn: Style
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: string
+		lineageTag: e1052bae-5652-4a9e-b2a8-0fdc8746b023
+		summarizeBy: none
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column PID
+		dataType: string
+		lineageTag: 18a00ab9-abeb-481d-a39f-0994b8dcc9bc
+		summarizeBy: none
+		sourceColumn: PID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tracking No'
+		dataType: string
+		lineageTag: fd24536c-e752-4784-853b-6ebb203082aa
+		summarizeBy: none
+		sourceColumn: Tracking No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Defect Name'
+		dataType: string
+		lineageTag: e3c214e4-0a79-4613-95de-39a11e809d7b
+		summarizeBy: none
+		sourceColumn: Defect Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Defect QTY'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a9bae0a-4e77-4ae7-ae1f-d36216ca1195
+		summarizeBy: sum
+		sourceColumn: Defect QTY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Central Database Unpivoted' = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({Inline, Endline, Prefinal}),
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"Month", "Item", "Color", "MO", "Operation #(lf)Name", "Operators#(lf)ID", "Inspector#(lf)Name", "Inspectors ID", "Total Check Quantity", "Order Qty", "Reject", "RFT%", "Column6", "DHU%", "Total Defect", "Column3", "Column4", "Column5"}),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Columns", {"Date", "Source.Name", "Inspection Stage", "Factory", "Building", "Floor", "Line #(lf)No", "Buyer", "Style", "Index", "PID", "Tracking No"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "Defect Name"}, {"Value", "Defect QTY"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

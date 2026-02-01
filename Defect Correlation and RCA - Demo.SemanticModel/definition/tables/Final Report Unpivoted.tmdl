@@ -1,0 +1,78 @@
+table 'Final Report Unpivoted'
+	lineageTag: 0fc1e35d-1f86-454a-8d33-7b287373c2b3
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: da45f9e6-8ce0-45af-9e49-daf82b1dbb44
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 292b40a3-f509-499b-bdca-38c77ec3d84d
+			defaultHierarchy: LocalDateTable_e2dc49d6-e853-48cf-9c82-76da1b7dda6c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Inspection Report'
+		dataType: string
+		lineageTag: e29a14bd-f61b-4ae4-935f-c3fb2722de21
+		summarizeBy: none
+		sourceColumn: Inspection Report
+
+		annotation SummarizationSetBy = Automatic
+
+	column Factory
+		dataType: string
+		lineageTag: 8a8e650c-0855-4ef0-8aef-c6f40ee722cf
+		summarizeBy: none
+		sourceColumn: Factory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: dd0e6ec0-3690-405d-9e92-9b02f1a25059
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Defect Name'
+		dataType: string
+		lineageTag: 68bd69dc-9fa8-45b4-b6cc-fc253b36c143
+		summarizeBy: none
+		sourceColumn: Defect Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Defect QTY'
+		dataType: int64
+		formatString: 0
+		lineageTag: d625a647-65a2-4d69-9715-91c4c3fe79f0
+		summarizeBy: sum
+		sourceColumn: Defect QTY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Final Report Unpivoted' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\mohaimin.chowdhury\OneDrive - Hop Lun\Personal Project - Transformation\Database\Monthly Database\Final Reports\Final - Inspection Reports.xlsx"), null, true),
+				    #"Final Report Pivot_Sheet" = Source{[Item="Final Report Pivot",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Final Report Pivot_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Inspection Report", type text}, {"Sample Size", Int64.Type}, {"Factory", type text}, {"Type", type text}, {"Broken stitches", Int64.Type}, {"Color stain", Int64.Type}, {"Excessive Dirt", Int64.Type}, {"Fabric defect by Processing: Pulling yarn", Int64.Type}, {"Fabric defect from machines: Holes (fabric)", Int64.Type}, {"Fabric defect from machines: Needle line/Streaks", Int64.Type}, {"Misaligned stripe/plaid/pattern/joint", Int64.Type}, {"Mishandling: Trimmed thread end / dust floated upon", Int64.Type}, {"Missed Stitching: Missed bar tack/tacking/sewing", Int64.Type}, {"Missing Components: Missing Trims/Embellishment/Components required", Int64.Type}, {"Natural features: Coarse/Single yarn", Int64.Type}, {"Oil stain", Int64.Type}, {"Open Seam", Int64.Type}, {"Other construction defects", Int64.Type}, {"Other textile defects", Int64.Type}, {"Partial color change: Shine of over pressing / hanger press marks", Int64.Type}, {"Product Related: Insect infested", Int64.Type}, {"Puckering/Shirring", Int64.Type}, {"Retail Package Printing: Incorrect printed retail packaging", Int64.Type}, {"Retail Package Printing: Incorrect size, style, color printed on unit box / polybag", Int64.Type}, {"Seam Outline: Crocked/Wavy seam", Int64.Type}, {"Seam Outline: Fullness/Ease", Int64.Type}, {"Seam Outline: Seam tension loose or tight", Int64.Type}, {"Skipped stitches", Int64.Type}, {"Stitching Repair: Needle holes", Int64.Type}, {"Surface appearance: Wrinkle/Crease Mark/Feed Dog Mark", Int64.Type}, {"Symmetry and Balance: High-Low issue", Int64.Type}, {"Symmetry and Balance: Irregular shape not symmetrical", Int64.Type}, {"Threads ends", Int64.Type}, {"Trimming: Frayed / Rough edges", Int64.Type}, {"Defective Decoration: Defective Artworks", Int64.Type}, {"Mismatch Standard: Mismatched Trims Mismatched Trims", Int64.Type}, {"Cleanness: Pen Mark", Int64.Type}, {"Seam Outline: Skewing/Twisted", Int64.Type}, {"Total Defect", Int64.Type}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Sample Size", "Total Defect"}),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Columns", {"Date", "Inspection Report", "Factory", "Type"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "Defect Name"}, {"Value", "Defect QTY"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
